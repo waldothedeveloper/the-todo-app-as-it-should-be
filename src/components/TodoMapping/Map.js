@@ -1,7 +1,8 @@
 import React from 'react';
 import TodoList from '../UI/TodoList';
+import PropTypes from 'prop-types';
 
-const todoMap = (props) => {
+const TodoMap = (props) => {
 	let todos = props.todos;
 
 	return (
@@ -13,4 +14,8 @@ const todoMap = (props) => {
 	);
 };
 
-export default todoMap;
+TodoMap.propTypes = {
+	todos: PropTypes.array.isRequired
+};
+
+export default TodoMap;

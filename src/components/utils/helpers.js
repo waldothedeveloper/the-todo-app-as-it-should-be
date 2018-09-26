@@ -1,4 +1,4 @@
-const titles = [
+export const titlesArray = [
 	'Another To-do App',
 	'Better done than sorry',
 	'Just do it',
@@ -7,6 +7,6 @@ const titles = [
 	"If things don't get better, better get it done"
 ];
 
-const randomNum = (number) => {
+export const randomNum = (number) => {
 	return Math.floor(Math.random() * Math.floor(number));
 };
