@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { randomNum, titlesArray } from '../../utils/helpers';
 class Title extends React.Component {
 	componentDidMount() {
@@ -22,5 +23,10 @@ class Title extends React.Component {
 		);
 	}
 }
+
+Title.propTypes = {
+	title: PropTypes.string.isRequired,
+	changingTitle: PropTypes.func.isRequired
+};
 
 export default Title;
