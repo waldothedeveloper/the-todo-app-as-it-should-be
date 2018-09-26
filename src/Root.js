@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoMap from './components/TodoMapping/Map';
 import Title from './components/UI/Header/Title';
+import Form from './components/NewTodo/Form';
 import shortid from 'shortid';
 import './Root.css';
 
@@ -8,29 +9,51 @@ class Root extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			title: 'Put it down to work for you',
+			todos: [],
+			newtodo: ''
+		};
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.changeTitle = this.changeTitle.bind(this);
+	}
+
+	changeTitle(theTitle) {
+		this.setState({
+			title: theTitle
+		});
+	}
+
+	handleChange(newTodo) {
+		this.setState({
+			newtodo: newTodo
+		});
+	}
+
+	handleSubmit(event) {
+		this.setState({
+			newtodo: '',
 			todos: [
+				...this.state.todos,
 				{
-					title: 'go to the gym',
-					done: false,
-					id: shortid.generate()
-				},
-				{
-					title: 'eat healthy',
-					done: false,
-					id: shortid.generate()
-				},
-				{
-					title: 'hug someone you love',
-					done: false,
-					id: shortid.generate()
+					title: this.state.newtodo,
+					id: shortid.generate(),
+					done: false
 				}
 			]
-		};
+		});
+		event.preventDefault();
 	}
+
 	render() {
 		return (
 			<div className="container">
-				<Title />
+				<Title title={this.state.title} changingTitle={this.changeTitle} />
+				<Form
+					newTodo={this.state.newtodo}
+					receiveSubmit={this.handleSubmit}
+					receiveChange={this.handleChange}
+				/>
 				<TodoMap todos={this.state.todos} />
 			</div>
 		);
