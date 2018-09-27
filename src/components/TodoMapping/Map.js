@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from '../UI/TodoList';
 import PropTypes from 'prop-types';
+import './Map.css';
 
 const TodoMap = (props) => {
 	let todos = props.todos;

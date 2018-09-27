@@ -31,17 +31,22 @@ class Root extends Component {
 	}
 
 	handleSubmit(event) {
-		this.setState({
-			newtodo: '',
-			todos: [
-				...this.state.todos,
-				{
-					title: this.state.newtodo,
-					id: shortid.generate(),
-					done: false
-				}
-			]
-		});
+		if (this.state.newtodo !== '') {
+			this.setState({
+				newtodo: '',
+				todos: [
+					...this.state.todos,
+					{
+						title: this.state.newtodo,
+						id: shortid.generate(),
+						done: false
+					}
+				]
+			});
+		} else {
+			alert('You cannot enter an empty title');
+		}
+
 		event.preventDefault();
 	}
 
