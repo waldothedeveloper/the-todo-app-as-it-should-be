@@ -7,8 +7,7 @@ import { randomNum, subtitlesArray } from '../../utils/helpers';
 
 const styles = {
 	root: {
-		width: '100%',
-		height: 'calc(100vh - 295px)'
+		width: '100%'
 	},
 	subtitles: {
 		marginTop: '3.5em'
