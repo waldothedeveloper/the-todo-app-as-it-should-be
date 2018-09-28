@@ -10,24 +10,26 @@ import classNames from 'classnames';
 
 const styles = (theme) => ({
 	root: {
-		width: '100%'
+		width: '100%',
+		height: '33vh'
 	},
 	gridItem: {
 		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center'
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'flex-start'
 	},
-	FacebookButton: {
+	button: {
 		margin: theme.spacing.unit,
 		width: 280,
 		height: 50,
-		backgroundColor: '#3B5798',
-		color: '#ffffff',
-		display: 'flex',
-		justifyContent: 'flex-start'
+		color: '#ffffff'
+	},
+	FacebookButton: {
+		background: 'linear-gradient(54deg, rgba(40,59,104,1) 0%, rgba(59,87,152,1) 100%)'
 	},
 	TwitterButton: {
-		backgroundColor: '#59DCFF'
+		background: 'linear-gradient(54deg, rgba(81,178,224,1) 0%, rgba(89,220,255,1) 100%)'
 	},
 	extendedIcon: {
 		marginRight: theme.spacing.unit
@@ -37,21 +39,26 @@ function FacebookButton(props) {
 	const { classes } = props;
 	return (
 		<Grid container className={classes.root} spacing={0}>
-			<Grid className={classes.gridItem} item xs={12} sm={12} md={12} lg={12}>
-				<Button variant="contained" aria-label="Facebook-icon" className={classes.FacebookButton}>
+			<Grid item className={classes.gridItem} xs={12} sm={12} md={12} lg={12}>
+				<Button
+					variant="contained"
+					aria-label="Facebook-icon"
+					className={classNames(classes.button, classes.FacebookButton)}
+				>
 					<FontAwesomeIcon icon={faFacebookF} className={classes.extendedIcon} size="2x" />
 					Facebook
 				</Button>
-			</Grid>
-			<Grid className={classes.gridItem} item xs={12} sm={12} md={12} lg={12}>
 				<Button
 					variant="contained"
 					aria-label="Twitter-icon"
-					className={classNames(classes.FacebookButton, classes.TwitterButton)}
+					className={classNames(classes.button, classes.FacebookButton, classes.TwitterButton)}
 				>
 					<FontAwesomeIcon icon={faTwitter} className={classes.extendedIcon} size="2x" />
 					Twitter
 				</Button>
+			</Grid>
+			<Grid item className={classes.gridItem} xs={12} sm={12} md={12} lg={12} gutterBottom>
+				<Button className={classes.button}>Skip</Button>
 			</Grid>
 		</Grid>
 	);
