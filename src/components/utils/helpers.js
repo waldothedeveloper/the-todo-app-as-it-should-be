@@ -1,4 +1,4 @@
-export const titlesArray = [
+export const subtitlesArray = [
 	'Another To-do App',
 	'Better done than sorry',
 	'Just do it',

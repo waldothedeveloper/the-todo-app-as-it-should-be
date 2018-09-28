@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import TodoMap from './components/TodoMapping/Map';
 import Title from './components/UI/Header/Title';
-import Form from './components/NewTodo/Form';
 import shortid from 'shortid';
-import './Root.css';
+import 'typeface-roboto';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import Subtitles from './components/UI/Subheader/SubTitles';
+import { theme } from './components/config/Theme';
+import FacebookButton from './components/UI/Features/Login/FacebookButton';
 
 class Root extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: 'Put it down to work for you',
+			subtitles: 'Very simple Things To-Do List.  Helps you to manage yourdaily life, without any hassle!',
+			title: 'EFFICIO',
 			todos: [],
 			newtodo: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.changeTitle = this.changeTitle.bind(this);
+		this.changeSubtitles = this.changeSubtitles.bind(this);
 	}
 
-	changeTitle(theTitle) {
+	changeSubtitles(subtitles) {
 		this.setState({
-			title: theTitle
+			subtitles: subtitles
 		});
 	}
 
@@ -52,15 +56,18 @@ class Root extends Component {
 
 	render() {
 		return (
-			<div className="container">
-				<Title title={this.state.title} changingTitle={this.changeTitle} />
-				<Form
-					newTodo={this.state.newtodo}
-					receiveSubmit={this.handleSubmit}
-					receiveChange={this.handleChange}
-				/>
-				<TodoMap todos={this.state.todos} />
-			</div>
+			<MuiThemeProvider theme={theme}>
+				<CssBaseline />
+				<Title title={this.state.title} />
+				<Subtitles subtitles={this.state.subtitles} changingSubtitle={this.changeSubtitles} />
+				<FacebookButton />
+				{/* <Form
+						newTodo={this.state.newtodo}
+						receiveSubmit={this.handleSubmit}
+						receiveChange={this.handleChange}
+					/> */}
+				{/* <TodoMap todos={this.state.todos} /> */}
+			</MuiThemeProvider>
 		);
 	}
 }
