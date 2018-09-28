@@ -11,7 +11,7 @@ import classNames from 'classnames';
 const styles = (theme) => ({
 	root: {
 		width: '100%',
-		height: '33vh'
+		height: '40vh'
 	},
 	gridItem: {
 		display: 'flex',
