@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-import Logo from './Logo';
 
 const styles = {
 	root: {
@@ -32,10 +31,9 @@ class Title extends React.Component {
 					<Typography align="center" variant="headline" gutterBottom>
 						Hi there! Welcome to
 					</Typography>
-					<Logo />
-					{/* <Typography className={classes.title} align="center" color="textPrimary" variant="display4">
+					<Typography className={classes.title} align="center" color="textPrimary" variant="display4">
 						{this.props.title}
-					</Typography> */}
+					</Typography>
 				</Grid>
 			</Grid>
 		);
