@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 const styles = (theme) => ({
 	root: {
@@ -57,8 +58,10 @@ function FacebookButton(props) {
 					Twitter
 				</Button>
 			</Grid>
-			<Grid item className={classes.gridItem} xs={12} sm={12} md={12} lg={12} gutterBottom>
-				<Button className={classes.button}>Skip</Button>
+			<Grid item className={classes.gridItem} xs={12} sm={12} md={12} lg={12}>
+				<Link to="/monthly-view">
+					<Button className={classes.button}>Skip</Button>
+				</Link>
 			</Grid>
 		</Grid>
 	);
