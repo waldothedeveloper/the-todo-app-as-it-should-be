@@ -1,64 +1,70 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import green from '@material-ui/core/colors/green';
+import Radio from '@material-ui/core/Radio';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 
-const styles = (theme) => ({
+const styles = {
 	root: {
-		backgroundColor: theme.palette.text.primary,
-		width: 285,
-		height: 50,
-		borderRadius: '100px'
+		color: green[600],
+		'&$checked': {
+			color: green[500]
+		}
 	},
-	selectedButton: {
-		width: 155,
-		height: 50,
-		background: theme.palette.primary.light,
-		boxShadow: 'none'
-	},
-	button: {
-		width: 130,
-		height: 50,
-		background: theme.palette.text.primary,
-		boxShadow: 'none'
-	}
-});
-class SwitchButton extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			active: false
-		};
-		this.toggleClass = this.toggleClass.bind(this);
-	}
+	checked: {}
+};
 
-	toggleClass() {
-		const currentState = this.state.active;
-		this.setState({ active: !currentState });
-	}
+class RadioButtons extends React.Component {
+	state = {
+		selectedValue: 'b'
+	};
+
+	handleChange = (event) => {
+		this.setState({ selectedValue: event.target.value });
+	};
 
 	render() {
 		const { classes } = this.props;
+
 		return (
-			<div className={classes.root}>
-				<Button
-					onClick={this.toggleClass}
-					variant="extendedFab"
-					aria-label="Monthly"
-					className={this.state.active ? classes.selectedButton : classes.button}
-				>
-					Monthly
-				</Button>
-				<Button
-					onClick={this.toggleClass}
-					variant="extendedFab"
-					aria-label="Daily"
-					className={this.state.active ? classes.selectedButton : classes.button}
-				>
-					Daily
-				</Button>
+			<div>
+				<span>Monthly</span>
+				<Radio
+					checked={this.state.selectedValue === 'b'}
+					onChange={this.handleChange}
+					value="b"
+					name="radio-button-demo"
+					aria-label="B"
+					icon={<RadioButtonUncheckedIcon fontSize="small" />}
+					checkedIcon={<RadioButtonCheckedIcon fontSize="small" />}
+					classes={{
+						root: classes.root,
+						checked: classes.checked
+					}}
+				/>
+				<span>Daily</span>
+				<Radio
+					checked={this.state.selectedValue === 'c'}
+					onChange={this.handleChange}
+					value="c"
+					name="radio-button-demo"
+					aria-label="C"
+					icon={<RadioButtonUncheckedIcon fontSize="small" />}
+					checkedIcon={<RadioButtonCheckedIcon fontSize="small" />}
+					classes={{
+						root: classes.root,
+						checked: classes.checked
+					}}
+				/>
 			</div>
 		);
 	}
 }
 
-export default withStyles(styles)(SwitchButton);
+RadioButtons.propTypes = {
+	classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(RadioButtons);

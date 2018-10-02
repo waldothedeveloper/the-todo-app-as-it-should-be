@@ -39,7 +39,7 @@ class Container extends React.Component {
 		const { classes } = this.props;
 		return (
 			<React.Fragment>
-				//Title and logo
+				{/* Title and logo */}
 				<Grid
 					container
 					className={classNames(classes.root, classes.rootTitle)}
@@ -53,7 +53,7 @@ class Container extends React.Component {
 						</Typography>
 					</Grid>
 				</Grid>
-				// SwitchButton
+				{/* SwitchButton */}
 				<Grid
 					container
 					className={classNames(classes.root)}
@@ -65,7 +65,7 @@ class Container extends React.Component {
 						<SwitchButton />
 					</Grid>
 				</Grid>
-				//Calendar
+				{/* Calendar */}
 				<Grid
 					container
 					className={classNames(classes.root, classes.rootCalendar)}

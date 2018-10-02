@@ -60,7 +60,7 @@ class Root extends Component {
 		event.preventDefault();
 	}
 
-	//lifecycle events
+	// lifecycle events
 	componentDidMount() {
 		fetch(API)
 			.then((response) => response.json())
