@@ -100,7 +100,6 @@ class Root extends Component {
 
 		event.preventDefault();
 	}
-
 	render() {
 		return (
 			<MuiThemeProvider theme={theme}>
