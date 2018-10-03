@@ -13,12 +13,12 @@ export const theme = createMuiTheme({
 			main: '#FF5C5C' //ligh red
 		},
 		text: {
-			primary: '#ffffff', //obviously white
+			primary: '#FFFFFF', //obviously white
 			secondary: '#050505' //dark almost completely black
 		},
 		background: {
 			paper: '#140A26', //black dark
-			default: '#140A26'
+			default: '#140A26' //snow white
 		}
 	}
 });

@@ -10,7 +10,7 @@ import FacebookButton from './components/UI/Features/Authentication/FacebookButt
 import Container from './components/Todos/Container';
 import { Route } from 'react-router-dom';
 import TodoMap from './components/TodoMapping/Map';
-
+import { now } from '../src/components/utils/helpers';
 // const API = 'https://jsonplaceholder.typicode.com/todos';
 class Root extends Component {
 	constructor(props) {
@@ -20,40 +20,44 @@ class Root extends Component {
 			todos: [
 				{
 					id: shortid.generate(),
-					topic: 'urgent',
-					description: 'call my work',
-					date: new Date(),
-					notification: '12am',
+					topic: 'call my work',
+					description: 'tell my boss I love the new project',
+					dueDate: now.format('Do MMM'),
+					reminder: '12am',
+					repeat: 'every hour',
 					color: 'red',
 					completed: false,
 					userId: 1
 				},
 				{
 					id: shortid.generate(),
-					topic: 'important',
-					description: 'make dinner',
-					date: new Date(),
-					notification: '6pm',
+					topic: 'make dinner',
+					description: 'This is a surprise for my wife',
+					dueDate: now.format('Do MMM'),
+					reminder: '6pm',
+					repeat: 'every day',
 					color: 'blue',
 					completed: false,
 					userId: 1
 				},
 				{
 					id: shortid.generate(),
-					topic: 'normal',
-					description: 'exercise',
-					date: new Date(),
-					notification: '5pm',
+					topic: 'exercise',
+					description: 'Remember that you want to win the next thetratlon',
+					dueDate: now.format('Do MMM'),
+					reminder: '5pm',
+					repeat: 'every week',
 					color: 'yellow',
 					completed: false,
 					userId: 2
 				},
 				{
 					id: shortid.generate(),
-					topic: 'chill',
-					description: 'take a nap',
-					date: new Date(),
-					notification: '2pm',
+					topic: 'take a nap',
+					description: 'This is a recommendation from the book of life',
+					dueDate: now.format('Do MMM'),
+					reminder: '2pm',
+					repeat: 'every month',
 					color: 'yellow',
 					completed: false,
 					userId: 3
@@ -61,7 +65,7 @@ class Root extends Component {
 			],
 			title: 'TTD',
 			newtodo: '',
-			date: new Date(),
+			date: new Date('November 2, 2001 05:15:00'),
 			error: null
 		};
 		this.handleChange = this.handleChange.bind(this);

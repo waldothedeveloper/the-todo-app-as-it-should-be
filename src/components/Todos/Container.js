@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import SwitchButton from './SwitchButton';
 import TodoMap from '../../components/TodoMapping/Map';
-import TodoList from '../UI/Features/ShowTodo/TodoList';
 
 const styles = {
 	root: {
@@ -41,11 +40,7 @@ class Container extends React.Component {
 		const { classes } = this.props;
 		return (
 			<React.Fragment>
-<<<<<<< HEAD
-				{/*  Title and Logo  */}
-=======
 				{/* Title and logo */}
->>>>>>> 1e22947726a0fe1286b3d552cf220e97dfdf9fc5
 				<Grid
 					container
 					className={classNames(classes.root, classes.rootTitle)}
@@ -59,11 +54,7 @@ class Container extends React.Component {
 						</Typography>
 					</Grid>
 				</Grid>
-<<<<<<< HEAD
-				{/* SwitchButton  */}
-=======
 				{/* SwitchButton */}
->>>>>>> 1e22947726a0fe1286b3d552cf220e97dfdf9fc5
 				<Grid
 					container
 					className={classNames(classes.root)}
@@ -75,11 +66,7 @@ class Container extends React.Component {
 						<SwitchButton />
 					</Grid>
 				</Grid>
-<<<<<<< HEAD
-				{/* calendar */}
-=======
 				{/* Calendar */}
->>>>>>> 1e22947726a0fe1286b3d552cf220e97dfdf9fc5
 				<Grid
 					container
 					className={classNames(classes.root, classes.rootCalendar)}
@@ -91,19 +78,11 @@ class Container extends React.Component {
 						<Calendar value={this.props.currentDate} onChange={this.onChange} />
 					</Grid>
 				</Grid>
-				<TodoMap todos={this.props.todos} />
-				{/* <Grid
-					container
-					className={classNames(classes.root)}
-					alignItems="flex-start"
-					justify="center"
-					spacing={0}
-				>
+				<Grid container className={classNames(classes.root)} justify="center" spacing={0}>
 					<Grid item>
 						<TodoMap todos={this.props.todos} />
 					</Grid>
-				</Grid> */}
-				{/* Showing the todos */}
+				</Grid>
 			</React.Fragment>
 		);
 	}
