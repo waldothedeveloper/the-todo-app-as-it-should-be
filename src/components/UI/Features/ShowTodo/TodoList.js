@@ -21,33 +21,28 @@ const styles = (theme) => ({
 	ul: {
 		backgroundColor: theme.palette.text.primary,
 		padding: 0
-	},
-	text: {
-		color: theme.palette.text.secondary
 	}
 });
 
-class TodoList extends React.Component {
-	render() {
-		const { classes } = this.props;
-		return (
-			<List className={classes.root} subheader={<li />}>
-				{this.props.todos.map((t) => (
-					<li key={`section-${t.id}`} className={classes.listSection}>
-						<ul className={classes.ul}>
-							<ListSubheader>{`${t.topic}`}</ListSubheader>
-							{this.props.todos.map((t) => (
-								<ListItem key={t.id}>
-									<ListItemText secondary={`${t.description}`} />
-								</ListItem>
-							))}
-						</ul>
-					</li>
-				))}
-			</List>
-		);
-	}
-}
+const TodoList = (props) => {
+	const { classes } = props;
+	return (
+		<List className={classes.root} subheader={<li />}>
+			{[ 0, 1, 2, 3, 4 ].map((sectionId) => (
+				<li key={`section-${sectionId}`} className={classes.listSection}>
+					<ul className={classes.ul}>
+						<ListSubheader>{`I'm sticky ${sectionId}`}</ListSubheader>
+						{[ 0, 1, 2 ].map((item) => (
+							<ListItem key={`item-${sectionId}-${item}`}>
+								<ListItemText primary={`Item ${item}`} />
+							</ListItem>
+						))}
+					</ul>
+				</li>
+			))}
+		</List>
+	);
+};
 
 TodoList.propTypes = {
 	classes: PropTypes.object.isRequired

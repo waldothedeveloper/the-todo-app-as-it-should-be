@@ -11,13 +11,54 @@ import Container from './components/Todos/Container';
 import { Route } from 'react-router-dom';
 import TodoMap from './components/TodoMapping/Map';
 
-const API = 'https://jsonplaceholder.typicode.com/todos';
+// const API = 'https://jsonplaceholder.typicode.com/todos';
 class Root extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			subtitles: 'Very simple Things To-Do List. Helps you to manage your daily life, without any hassle!',
-			todos: [],
+			todos: [
+				{
+					id: shortid.generate(),
+					topic: 'urgent',
+					description: 'call my work',
+					date: new Date(),
+					notification: '12am',
+					color: 'red',
+					completed: false,
+					userId: 1
+				},
+				{
+					id: shortid.generate(),
+					topic: 'important',
+					description: 'make dinner',
+					date: new Date(),
+					notification: '6pm',
+					color: 'blue',
+					completed: false,
+					userId: 1
+				},
+				{
+					id: shortid.generate(),
+					topic: 'normal',
+					description: 'exercise',
+					date: new Date(),
+					notification: '5pm',
+					color: 'yellow',
+					completed: false,
+					userId: 2
+				},
+				{
+					id: shortid.generate(),
+					topic: 'chill',
+					description: 'take a nap',
+					date: new Date(),
+					notification: '2pm',
+					color: 'yellow',
+					completed: false,
+					userId: 3
+				}
+			],
 			title: 'TTD',
 			newtodo: '',
 			date: new Date(),
@@ -60,18 +101,6 @@ class Root extends Component {
 		event.preventDefault();
 	}
 
-	//lifecycle events
-	componentDidMount() {
-		fetch(API)
-			.then((response) => response.json())
-			.then((data) =>
-				this.setState({
-					todos: data
-				})
-			)
-			.catch((error) => console.log.log(error));
-	}
-
 	render() {
 		return (
 			<MuiThemeProvider theme={theme}>
@@ -88,15 +117,11 @@ class Root extends Component {
 				<Route
 					exact
 					path="/monthly-view"
-					render={() => <Container title={this.state.title} currentDate={this.state.date} />}
+					render={() => (
+						<Container title={this.state.title} currentDate={this.state.date} todos={this.state.todos} />
+					)}
 				/>
-				<Route
-					exact
-					path="/monthy-view"
-					render={() => {
-						<TodoMap todos={this.state.todos} />;
-					}}
-				/>
+				<Route exact path="/monthy-view" render={() => <TodoMap />} />
 				{/* <Form
 						newTodo={this.state.newtodo}
 						receiveSubmit={this.handleSubmit}
