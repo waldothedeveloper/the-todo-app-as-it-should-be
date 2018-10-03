@@ -10,6 +10,16 @@ const styles = {
 		height: '35vh',
 		backgroundColor: '#221738',
 		borderRadius: '0 0 28.96px 28.96px'
+	},
+	logo: {
+		color: '#F99231',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: '1.5em'
+	},
+	title: {
+		fontWeight: 800
 	}
 };
 class Title extends React.Component {
@@ -18,10 +28,10 @@ class Title extends React.Component {
 		return (
 			<Grid container className={classes.root} alignItems="center" justify="center" spacing={0}>
 				<Grid item>
-					<Typography align="center" variant="subheading" gutterBottom>
+					<Typography align="center" variant="headline" gutterBottom>
 						Hi there! Welcome to
 					</Typography>
-					<Typography align="center" color="textPrimary" variant="display1">
+					<Typography className={classes.title} align="center" color="textPrimary" variant="display4">
 						{this.props.title}
 					</Typography>
 				</Grid>
