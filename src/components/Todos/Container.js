@@ -6,20 +6,17 @@ import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import SwitchButton from './SwitchButton';
 import TodoMap from '../../components/TodoMapping/Map';
+import BottomNav from '../UI/Navigation/BottomNav';
 
 const styles = {
 	root: {
 		width: '100%'
 	},
-	rootTitle: {
-		height: '10vh'
+	rootLogo: {
+		flexDirection: 'column'
 	},
-	rootCalendar: {
-		height: '40vh'
-	},
-	gridItem: {
-		width: '100%',
-		marginBottom: '2em'
+	rootItem: {
+		margin: '0 auto'
 	},
 	title: {
 		marginTop: '1.5em'
@@ -40,49 +37,39 @@ class Container extends React.Component {
 		const { classes } = this.props;
 		return (
 			<React.Fragment>
-				{/* Title and logo */}
+				{/* Logo */}
 				<Grid
 					container
-					className={classNames(classes.root, classes.rootTitle)}
+					className={classNames(classes.root, classes.rootLogo)}
 					alignItems="flex-start"
 					justify="center"
 					spacing={0}
 				>
-					<Grid item className={classes.gridItem}>
+					<Grid item className={classes.rootItem}>
 						<Typography className={classes.title} align="center" variant="headline" gutterBottom>
 							{this.props.title}
 						</Typography>
 					</Grid>
-				</Grid>
-				{/* SwitchButton */}
-				<Grid
-					container
-					className={classNames(classes.root)}
-					alignItems="flex-start"
-					justify="center"
-					spacing={0}
-				>
-					<Grid item>
+					<Grid item className={classes.rootItem}>
+						{/* SwitchButton */}
 						<SwitchButton />
 					</Grid>
 				</Grid>
+
 				{/* Calendar */}
-				<Grid
-					container
-					className={classNames(classes.root, classes.rootCalendar)}
-					alignItems="flex-start"
-					justify="center"
-					spacing={0}
-				>
+				<Grid container className={classes.root} alignItems="flex-start" justify="center" spacing={0}>
 					<Grid item>
 						<Calendar value={this.props.currentDate} onChange={this.onChange} />
 					</Grid>
 				</Grid>
-				<Grid container className={classNames(classes.root)} justify="center" spacing={0}>
+				{/* Todos */}
+				<Grid container className={classes.root} justify="center" spacing={0}>
 					<Grid item>
 						<TodoMap todos={this.props.todos} />
 					</Grid>
 				</Grid>
+				{/*  Bottom Navigation */}
+				<BottomNav />
 			</React.Fragment>
 		);
 	}

@@ -61,6 +61,28 @@ class Root extends Component {
 					color: 'yellow',
 					completed: false,
 					userId: 3
+				},
+				{
+					id: shortid.generate(),
+					topic: 'watch the movie Titanic',
+					description: 'For free next Friday',
+					dueDate: now.format('Do MMM'),
+					reminder: '8pm',
+					repeat: 'none',
+					color: 'yellow',
+					completed: false,
+					userId: 3
+				},
+				{
+					id: shortid.generate(),
+					topic: 'Eat dinner with Bebe',
+					description: 'My cat needs me',
+					dueDate: now.format('Do MMM'),
+					reminder: '6pm',
+					repeat: 'every month',
+					color: 'yellow',
+					completed: false,
+					userId: 3
 				}
 			],
 			title: 'TTD',
