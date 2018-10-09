@@ -9,7 +9,6 @@ import { theme } from './components/config/Theme';
 import FacebookButton from './components/UI/Features/Authentication/FacebookButton';
 import Container from './components/Todos/Container';
 import { Route } from 'react-router-dom';
-import TodoMap from './components/TodoMapping/Map';
 import { now } from '../src/components/utils/helpers';
 // const API = 'https://jsonplaceholder.typicode.com/todos';
 class Root extends Component {
@@ -85,9 +84,9 @@ class Root extends Component {
 					userId: 3
 				}
 			],
-			title: 'TTD',
+			title: 'Todoist',
 			newtodo: '',
-			date: new Date('November 2, 2001 05:15:00'),
+			date: new Date('November 2, 2016 05:15:00'),
 			error: null
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -141,17 +140,11 @@ class Root extends Component {
 				<Route exact path="/" component={FacebookButton} />
 				<Route
 					exact
-					path="/monthly-view"
+					path="/inbox"
 					render={() => (
 						<Container title={this.state.title} currentDate={this.state.date} todos={this.state.todos} />
 					)}
 				/>
-				<Route exact path="/monthy-view" render={() => <TodoMap />} />
-				{/* <Form
-						newTodo={this.state.newtodo}
-						receiveSubmit={this.handleSubmit}
-						receiveChange={this.handleChange}
-					/> */}
 			</MuiThemeProvider>
 		);
 	}
