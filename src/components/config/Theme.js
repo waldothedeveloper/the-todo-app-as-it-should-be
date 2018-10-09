@@ -3,22 +3,22 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export const theme = createMuiTheme({
 	palette: {
 		primary: {
-			light: '#5B3E96', // lighter violet
-			main: '#221738' //very dark violet
+			light: '#323232', // lighter dark
+			main: '#282828' // dark
 		},
 		secondary: {
-			main: '#EFF5F8' //black dark
+			main: 'rgba(255,255,255,0.87)' //obviously white
 		},
 		error: {
-			main: '#FF5C5C' //ligh red
+			main: '#d24726' //ligh red
 		},
 		text: {
-			primary: '#FFFFFF', //obviously white
-			secondary: '#050505' //dark almost completely black
+			primary: 'rgba(255,255,255,0.87)', //obviously white
+			secondary: '#202020' //dark almost completely black
 		},
 		background: {
-			paper: '#140A26', //black dark
-			default: '#140A26' //snow white
+			paper: '#282828',
+			default: '#282828'
 		}
 	}
 });
