@@ -59,7 +59,7 @@ function FacebookButton(props) {
 				</Button>
 			</Grid>
 			<Grid item className={classes.gridItem} xs={12} sm={12} md={12} lg={12}>
-				<Link to="/monthly-view">
+				<Link to="/inbox">
 					<Button className={classes.button}>Skip</Button>
 				</Link>
 			</Grid>

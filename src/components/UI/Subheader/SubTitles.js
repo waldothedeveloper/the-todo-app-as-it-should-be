@@ -33,7 +33,7 @@ class Subtitles extends React.Component {
 		return (
 			<Grid container className={classes.root} alignItems="flex-start" justify="center" spacing={0}>
 				<Grid item>
-					<Typography className={classes.subtitles} align="center" variant="subheading">
+					<Typography className={classes.subtitles} align="center" variant="subtitle1">
 						{this.props.subtitles}
 					</Typography>
 				</Grid>

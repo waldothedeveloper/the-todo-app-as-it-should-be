@@ -28,7 +28,7 @@ function TodoMap(props) {
 
 	return (
 		<React.Fragment>
-			<Typography variant="headline" gutterBottom>
+			<Typography variant="body1" gutterBottom>
 				This Month
 			</Typography>
 			<List className={classes.root}>

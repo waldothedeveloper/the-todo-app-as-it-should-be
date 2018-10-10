@@ -5,7 +5,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Add from '@material-ui/icons/Add';
+import Notifications from '@material-ui/icons/Notifications';
+import Settings from '@material-ui/icons/Settings';
 import MenuIcon from '@material-ui/icons/Menu';
+import TimeLine from '@material-ui/icons/Timeline';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
@@ -52,10 +55,10 @@ function MainNav(props) {
 			<AppBar position="static">
 				<Toolbar>
 					<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-						{/*This is the pretty hamburger icon*/}
+						{/* This is the pretty hamburger icon */}
 						<MenuIcon />
 					</IconButton>
-					{/*Following stuff below the menu icon */}
+					{/* Following stuff below the menu icon */}
 					<div className={classes.search}>
 						<InputBase
 							placeholder="Search…"
@@ -67,8 +70,21 @@ function MainNav(props) {
 					</div>
 					{/* This is to let the item grow? */}
 					<div className={classes.grow} />
+					{/* Add task icon */}
 					<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
 						<Add />
+					</IconButton>
+					{/* Productivity icon */}
+					<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+						<TimeLine />
+					</IconButton>
+					{/* Notifications icon */}
+					<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+						<Notifications />
+					</IconButton>
+					{/* Settings icon */}
+					<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+						<Settings />
 					</IconButton>
 				</Toolbar>
 			</AppBar>

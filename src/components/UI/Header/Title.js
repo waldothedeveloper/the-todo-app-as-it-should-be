@@ -28,10 +28,10 @@ class Title extends React.Component {
 		return (
 			<Grid container className={classes.root} alignItems="center" justify="center" spacing={0}>
 				<Grid item>
-					<Typography align="center" variant="headline" gutterBottom>
+					<Typography align="center" variant="body1" gutterBottom>
 						Hi there! Welcome to
 					</Typography>
-					<Typography className={classes.title} align="center" color="textPrimary" variant="display4">
+					<Typography className={classes.title} align="center" color="textPrimary" variant="h4">
 						{this.props.title}
 					</Typography>
 				</Grid>
