@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import Add from '@material-ui/icons/Add';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
@@ -23,7 +23,7 @@ const styles = (theme) => ({
 		'&:hover': {
 			backgroundColor: fade(theme.palette.common.white, 0.25)
 		},
-		marginRight: theme.spacing.unit * 2,
+		marginRight: theme.spacing.unit,
 		marginLeft: 0,
 		width: 100,
 		[theme.breakpoints.up('sm')]: {
@@ -45,14 +45,14 @@ const styles = (theme) => ({
 	}
 });
 
-function ButtonAppBar(props) {
+function MainNav(props) {
 	const { classes } = props;
 	return (
 		<div className={classes.root}>
 			<AppBar position="static">
 				<Toolbar>
 					<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-						{/*This is the nice hamburger */}
+						{/*This is the pretty hamburger icon*/}
 						<MenuIcon />
 					</IconButton>
 					{/*Following stuff below the menu icon */}
@@ -65,14 +65,19 @@ function ButtonAppBar(props) {
 							}}
 						/>
 					</div>
+					{/* This is to let the item grow? */}
+					<div className={classes.grow} />
+					<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+						<Add />
+					</IconButton>
 				</Toolbar>
 			</AppBar>
 		</div>
 	);
 }
 
-ButtonAppBar.propTypes = {
+MainNav.propTypes = {
 	classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ButtonAppBar);
+export default withStyles(styles)(MainNav);

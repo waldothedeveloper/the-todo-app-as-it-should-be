@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Title from './components/UI/Header/Title';
 import shortid from 'shortid';
 import 'typeface-roboto';
@@ -11,7 +11,7 @@ import Container from './components/Todos/Container';
 import { Route } from 'react-router-dom';
 import { now } from '../src/components/utils/helpers';
 // const API = 'https://jsonplaceholder.typicode.com/todos';
-class Root extends Component {
+class Root extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
