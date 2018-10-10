@@ -11,8 +11,7 @@ import { Link } from 'react-router-dom';
 
 const styles = (theme) => ({
 	root: {
-		width: '100%',
-		height: '40vh'
+		width: '100%'
 	},
 	gridItem: {
 		display: 'flex',
@@ -60,7 +59,7 @@ function FacebookButton(props) {
 			</Grid>
 			<Grid item className={classes.gridItem} xs={12} sm={12} md={12} lg={12}>
 				<Link to="/inbox">
-					<Button className={classes.button}>Skip</Button>
+					<Button className={classes.button}>Try it</Button>
 				</Link>
 			</Grid>
 		</Grid>

@@ -1,26 +1,13 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
-import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import FlipToFront from '@material-ui/icons/FlipToFront';
 
-const styles = {
-	logo: {
-		color: '#F99231',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		marginTop: '1.5em'
-	}
-};
-
-const Logo = (props) => {
-	const { classes } = props;
+const Logo = () => {
 	return (
-		<Grid item className={classes.logo}>
-			<FontAwesomeIcon icon={faClipboard} size="lg" transform={{ rotate: 42 }} />
-		</Grid>
+		<IconButton>
+			<FlipToFront color="secondary" fontSize="large" />
+		</IconButton>
 	);
 };
 
-export default withStyles(styles)(Logo);
+export default Logo;

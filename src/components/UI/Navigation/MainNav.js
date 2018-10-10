@@ -14,7 +14,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const styles = (theme) => ({
 	root: {
-		flexGrow: 1
+		flexGrow: 1,
+		backgroundColor: theme.palette.secondary.main
 	},
 	grow: {
 		flexGrow: 1

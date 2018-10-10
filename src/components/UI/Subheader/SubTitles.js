@@ -5,15 +5,13 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import { randomNum, subtitlesArray } from '../../utils/helpers';
 
-const styles = {
+const styles = (theme) => ({
 	root: {
 		width: '100%',
-		height: '25vh'
-	},
-	subtitles: {
-		marginTop: '3.5em'
+		marginTop: theme.spacing.unit * 4,
+		marginBottom: theme.spacing.unit * 4
 	}
-};
+});
 class Subtitles extends React.Component {
 	componentDidMount() {
 		this.timer = setInterval(() => this.changeTitle(), 4000);
@@ -33,7 +31,7 @@ class Subtitles extends React.Component {
 		return (
 			<Grid container className={classes.root} alignItems="flex-start" justify="center" spacing={0}>
 				<Grid item>
-					<Typography className={classes.subtitles} align="center" variant="subtitle1">
+					<Typography align="center" variant="subtitle1">
 						{this.props.subtitles}
 					</Typography>
 				</Grid>

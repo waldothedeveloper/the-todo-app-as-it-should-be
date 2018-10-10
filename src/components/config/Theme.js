@@ -7,7 +7,7 @@ export const theme = createMuiTheme({
 			main: '#282828' // dark
 		},
 		secondary: {
-			main: 'rgba(255,255,255,0.87)' //obviously white
+			main: '#dc4fad'
 		},
 		error: {
 			main: '#d24726' //ligh red

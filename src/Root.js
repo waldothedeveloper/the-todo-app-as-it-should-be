@@ -15,7 +15,7 @@ class Root extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			subtitles: 'Very simple Things To-Do List. Helps you to manage your daily life, without any hassle!',
+			subtitles: 'Own your day without any hassle!',
 			todos: [
 				{
 					id: shortid.generate(),
@@ -84,7 +84,7 @@ class Root extends React.Component {
 					userId: 3
 				}
 			],
-			title: 'Todoist',
+			title: 'Factodo',
 			newtodo: '',
 			date: new Date('November 2, 2016 05:15:00'),
 			error: null
