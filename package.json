@@ -11,7 +11,9 @@
 		"@material-ui/core": "^3.1.1",
 		"@material-ui/icons": "^3.0.1",
 		"@material-ui/lab": "^3.0.0-alpha.18",
+		"@okta/okta-react": "^1.1.1",
 		"axios": "^0.18.0",
+		"dotenv-webpack": "^1.5.7",
 		"material-design-icons": "^3.0.1",
 		"moment": "^2.22.2",
 		"moment-timezone": "^0.5.21",
@@ -26,8 +28,8 @@
 		"typeface-roboto": "0.0.54"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"start": "webpack --config webpack.config.dev.js",
+		"build": "webpack --config webpack.config.build.js",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject"
 	},
@@ -36,6 +38,8 @@
 		"eslint-config-airbnb": "^17.1.0",
 		"eslint-plugin-import": "^2.14.0",
 		"eslint-plugin-jsx-a11y": "^6.1.1",
-		"eslint-plugin-react": "^7.11.0"
+		"eslint-plugin-react": "^7.11.0",
+		"webpack": "^4.20.2",
+		"webpack-cli": "^3.1.2"
 	}
 }

@@ -10,7 +10,13 @@ import FacebookButton from './components/UI/Features/Authentication/FacebookButt
 import Container from './components/Todos/Container';
 import { Route } from 'react-router-dom';
 import { now } from '../src/components/utils/helpers';
-// const API = 'https://jsonplaceholder.typicode.com/todos';
+import { Security, ImplicitCallback } from '@okta/okta-react';
+
+const config = {
+	issuer: 'https://{process.env.ORG_URL}/oauth2/default',
+	redirect_uri: window.location.origin + '/implicit/callback',
+	client_id: '{process.env.CLIENT_ID}'
+};
 class Root extends React.Component {
 	constructor(props) {
 		super(props);
