@@ -23,6 +23,7 @@ class Root extends React.Component {
 		super(props);
 		this.state = {
 			subtitles: 'Own your day without any hassle!',
+			response: '',
 			todos: [
 				{
 					id: shortid.generate(),
@@ -45,50 +46,6 @@ class Root extends React.Component {
 					color: 'blue',
 					completed: false,
 					userId: 1
-				},
-				{
-					id: shortid.generate(),
-					topic: 'exercise',
-					description: 'Remember that you want to win the next thetratlon',
-					dueDate: now.format('Do MMM'),
-					reminder: '5pm',
-					repeat: 'every week',
-					color: 'yellow',
-					completed: false,
-					userId: 2
-				},
-				{
-					id: shortid.generate(),
-					topic: 'take a nap',
-					description: 'This is a recommendation from the book of life',
-					dueDate: now.format('Do MMM'),
-					reminder: '2pm',
-					repeat: 'every month',
-					color: 'yellow',
-					completed: false,
-					userId: 3
-				},
-				{
-					id: shortid.generate(),
-					topic: 'watch the movie Titanic',
-					description: 'For free next Friday',
-					dueDate: now.format('Do MMM'),
-					reminder: '8pm',
-					repeat: 'none',
-					color: 'yellow',
-					completed: false,
-					userId: 3
-				},
-				{
-					id: shortid.generate(),
-					topic: 'Eat dinner with Bebe',
-					description: 'My cat needs me',
-					dueDate: now.format('Do MMM'),
-					reminder: '6pm',
-					repeat: 'every month',
-					color: 'yellow',
-					completed: false,
-					userId: 3
 				}
 			],
 			title: 'Factodo',
@@ -132,6 +89,19 @@ class Root extends React.Component {
 
 		event.preventDefault();
 	}
+
+	componentDidMount() {
+		this.callApi().then((res) => this.setState({ response: res.express })).catch((err) => console.log(err));
+	}
+
+	callAPi = async () => {
+		const response = await fetch('/api/root');
+		const body = await response.json();
+
+		if (response.status !== 200) throw Error(body.message);
+		return body;
+	};
+
 	render() {
 		return (
 			<MuiThemeProvider theme={theme}>
