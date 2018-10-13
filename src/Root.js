@@ -6,10 +6,17 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import SubTitles from './components/UI/Subheader/SubTitles';
 import { theme } from './components/config/Theme';
-import SocialAuthButtons from './components/UI/Features/Authentication/SocialAuthButtons';
+import FacebookButton from './components/UI/Features/Authentication/FacebookButton';
 import Container from './components/Todos/Container';
 import { Route } from 'react-router-dom';
+import { now } from '../src/components/utils/helpers';
+import { Security, ImplicitCallback } from '@okta/okta-react';
 
+const config = {
+	issuer: 'https://{process.env.ORG_URL}/oauth2/default',
+	redirect_uri: window.location.origin + '/implicit/callback',
+	client_id: '{process.env.CLIENT_ID}'
+};
 class Root extends React.Component {
 	constructor(props) {
 		super(props);
@@ -20,7 +27,7 @@ class Root extends React.Component {
 					id: shortid.generate(),
 					topic: 'call my work',
 					description: 'tell my boss I love the new project',
-					dueDate: 'Sometime in the calendar',
+					dueDate: now.format('Do MMM'),
 					reminder: '12am',
 					repeat: 'every hour',
 					color: 'red',
@@ -31,16 +38,61 @@ class Root extends React.Component {
 					id: shortid.generate(),
 					topic: 'make dinner',
 					description: 'This is a surprise for my wife',
-					dueDate: 'Sometime in the calendar',
+					dueDate: now.format('Do MMM'),
 					reminder: '6pm',
 					repeat: 'every day',
 					color: 'blue',
 					completed: false,
 					userId: 1
+				},
+				{
+					id: shortid.generate(),
+					topic: 'exercise',
+					description: 'Remember that you want to win the next thetratlon',
+					dueDate: now.format('Do MMM'),
+					reminder: '5pm',
+					repeat: 'every week',
+					color: 'yellow',
+					completed: false,
+					userId: 2
+				},
+				{
+					id: shortid.generate(),
+					topic: 'take a nap',
+					description: 'This is a recommendation from the book of life',
+					dueDate: now.format('Do MMM'),
+					reminder: '2pm',
+					repeat: 'every month',
+					color: 'yellow',
+					completed: false,
+					userId: 3
+				},
+				{
+					id: shortid.generate(),
+					topic: 'watch the movie Titanic',
+					description: 'For free next Friday',
+					dueDate: now.format('Do MMM'),
+					reminder: '8pm',
+					repeat: 'none',
+					color: 'yellow',
+					completed: false,
+					userId: 3
+				},
+				{
+					id: shortid.generate(),
+					topic: 'Eat dinner with Bebe',
+					description: 'My cat needs me',
+					dueDate: now.format('Do MMM'),
+					reminder: '6pm',
+					repeat: 'every month',
+					color: 'yellow',
+					completed: false,
+					userId: 3
 				}
 			],
 			title: 'Factodo',
 			newtodo: '',
+			date: new Date('November 2, 2016 05:15:00'),
 			error: null
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -79,7 +131,6 @@ class Root extends React.Component {
 
 		event.preventDefault();
 	}
-
 	render() {
 		return (
 			<MuiThemeProvider theme={theme}>
@@ -92,11 +143,13 @@ class Root extends React.Component {
 						<SubTitles subtitles={this.state.subtitles} changingSubtitle={this.changeSubtitles} />
 					)}
 				/>
-				<Route exact path="/" component={SocialAuthButtons} />
+				<Route exact path="/" component={FacebookButton} />
 				<Route
 					exact
 					path="/inbox"
-					render={() => <Container title={this.state.title} todos={this.state.todos} />}
+					render={() => (
+						<Container title={this.state.title} currentDate={this.state.date} todos={this.state.todos} />
+					)}
 				/>
 			</MuiThemeProvider>
 		);

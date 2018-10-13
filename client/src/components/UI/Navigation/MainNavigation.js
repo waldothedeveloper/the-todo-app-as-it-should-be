@@ -10,7 +10,6 @@ import Settings from '@material-ui/icons/Settings';
 import MenuIcon from '@material-ui/icons/Menu';
 import TimeLine from '@material-ui/icons/Timeline';
 import InputBase from '@material-ui/core/InputBase';
-import Button from '@material-ui/core/Button';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const styles = (theme) => ({
@@ -30,7 +29,7 @@ const styles = (theme) => ({
 		},
 		marginRight: theme.spacing.unit,
 		marginLeft: 0,
-		width: 100,
+		width: 'auto',
 		[theme.breakpoints.up('sm')]: {
 			marginLeft: theme.spacing.unit * 3,
 			width: 'auto'
@@ -51,11 +50,6 @@ const styles = (theme) => ({
 });
 
 class MainNavigation extends React.Component {
-	logout = () => {
-		console.log('i was clicked on the MainNavigation');
-		this.props.logout;
-	};
-
 	render() {
 		const { classes } = this.props;
 		return (
@@ -96,10 +90,6 @@ class MainNavigation extends React.Component {
 						</IconButton>
 					</Toolbar>
 				</AppBar>
-				{/* this button bellow on line 100 is from the Okta Logout session */}
-				<Button variant="contained" onClick={this.logout}>
-					Logout
-				</Button>
 			</div>
 		);
 	}

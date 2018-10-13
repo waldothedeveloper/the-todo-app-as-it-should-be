@@ -1,8 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import MainNavigation from '../UI/Navigation/MainNavigation';
-
-import List from './List';
+import MainNavigation from '../UI/Navigation/MainNav';
 
 const styles = {
 	root: {
@@ -20,15 +18,19 @@ const styles = {
 };
 
 class Container extends React.Component {
-	onChange = (date) => {
+	constructor(props) {
+		super(props);
+		this.onChange = this.onChange.bind(this);
+	}
+
+	onChange(date) {
 		console.log(date);
-	};
+	}
 
 	render() {
 		return (
 			<React.Fragment>
 				<MainNavigation />
-				<List />
 			</React.Fragment>
 		);
 	}

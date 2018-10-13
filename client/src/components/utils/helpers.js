@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 export const subtitlesArray = [
 	'Another To-do App',
 	'Better done than sorry',
@@ -12,8 +10,6 @@ export const subtitlesArray = [
 export const randomNum = (number) => {
 	return Math.floor(Math.random() * Math.floor(number));
 };
-
-export const now = moment();
 
 // This is some dummy data todos
 // {
