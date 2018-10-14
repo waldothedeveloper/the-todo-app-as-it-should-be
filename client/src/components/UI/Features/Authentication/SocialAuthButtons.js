@@ -11,8 +11,7 @@ import { Link } from 'react-router-dom';
 
 const styles = (theme) => ({
 	root: {
-		width: '100%',
-		height: '40vh'
+		width: '100%'
 	},
 	gridItem: {
 		display: 'flex',
@@ -36,7 +35,7 @@ const styles = (theme) => ({
 		marginRight: theme.spacing.unit
 	}
 });
-function FacebookButton(props) {
+function SocialAuthButtons(props) {
 	const { classes } = props;
 	return (
 		<Grid container className={classes.root} spacing={0}>
@@ -60,15 +59,15 @@ function FacebookButton(props) {
 			</Grid>
 			<Grid item className={classes.gridItem} xs={12} sm={12} md={12} lg={12}>
 				<Link to="/inbox">
-					<Button className={classes.button}>Skip</Button>
+					<Button className={classes.button}>Try it</Button>
 				</Link>
 			</Grid>
 		</Grid>
 	);
 }
 
-FacebookButton.propTypes = {
+SocialAuthButtons.propTypes = {
 	classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(FacebookButton);
+export default withStyles(styles)(SocialAuthButtons);

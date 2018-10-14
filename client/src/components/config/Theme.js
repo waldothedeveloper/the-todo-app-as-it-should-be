@@ -7,7 +7,7 @@ export const theme = createMuiTheme({
 			main: '#282828' // dark
 		},
 		secondary: {
-			main: '#dc4fad'
+			main: '#dc4fad' //sort of pink
 		},
 		error: {
 			main: '#d24726' //ligh red
@@ -18,7 +18,7 @@ export const theme = createMuiTheme({
 		},
 		background: {
 			paper: '#282828',
-			default: '#282828'
+			default: '#282828' //sort of pink
 		}
 	}
 });
