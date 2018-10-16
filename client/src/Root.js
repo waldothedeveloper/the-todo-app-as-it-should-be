@@ -39,7 +39,7 @@ class Root extends React.Component {
 
 	handleNewTask = (event) => {
 		if (this.state.task !== '') {
-			this.setState((state) => { 
+			this.setState((state) => {
 				return {
 					todos: [
 						...this.state.todos,
@@ -53,9 +53,8 @@ class Root extends React.Component {
 							userId: 1
 						}
 					],
-					task: state.task = ""
-
-				}
+					task: (state.task = '')
+				};
 			});
 		} else {
 			alert('You cannot enter an empty title');
@@ -88,6 +87,7 @@ class Root extends React.Component {
 							handleNewTask={this.handleNewTask}
 							task={this.state.task}
 							todos={this.state.todos}
+							taskCompleted={this.state.todos}
 						/>
 					)}
 				/>

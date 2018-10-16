@@ -33,14 +33,14 @@ const AddBtn = {
 	}
 };
 
-const DeleteBtn = {
+const CancelTaskBtn = {
 	margin: 0,
 	color: '#fafafa'
 };
 
 class Form extends React.Component {
-	cancelNewTask = () => {
-		this.props.cancelNewTask();
+	cancelNewTask = (event) => {
+		this.props.cancelNewTask(event);
 	};
 
 	handleTaskChange = (event) => {
@@ -51,10 +51,7 @@ class Form extends React.Component {
 		this.props.handleNewTask(event);
 	};
 
-	
-
 	render() {
-	
 		const now = moment();
 		const classes = this.props;
 		return (
@@ -84,19 +81,13 @@ class Form extends React.Component {
 				<Table>
 					<TableBody>
 						<TableRow>
-							{/* Create and Delete Todo buttons */}
+							{/* Create and Cancel Todo buttons */}
 							<TableCell style={tableCell}>
 								<Button variant="contained" size="medium" style={AddBtn} value="Submit" type="submit">
 									Add Task
 								</Button>
-								<Button
-									onClick={this.props.cancelNewTask}
-									onBlur={this.props.cancelNewTask}
-									variant="text"
-									size="medium"
-									style={DeleteBtn}
-								>
-									Delete
+								<Button variant="text" size="medium" style={CancelTaskBtn} onClick={this.cancelNewTask}>
+									Cancel
 								</Button>
 							</TableCell>
 							{/* Project, Notifications and Priority icons */}
@@ -129,5 +120,5 @@ Form.propTypes = {
 	cancelNewTask: PropTypes.func.isRequired,
 	handleTaskChange: PropTypes.func.isRequired,
 	handleNewTask: PropTypes.func.isRequired
-}
+};
 export default Form;

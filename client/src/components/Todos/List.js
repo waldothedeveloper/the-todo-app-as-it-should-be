@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Add from '@material-ui/icons/Add';
 import Today from '../UI/Features/Dates/Today';
 import Form from '../NewTodo/Form';
-import Map from '../TodoMapping/Map'
+import Map from '../TodoMapping/Map';
 
 const styles = (theme) => ({
 	root: {
@@ -58,16 +58,17 @@ class NewTodoList extends React.Component {
 				<List component="ul">
 					<Today />
 					{/* Map returns an <li> with each new todo */}
-					<Map todos={this.props.todos}/>
+					<Map todos={this.props.todos} />
 					<ListItem className={!Addtask ? classes.hide : ''}>
 						<Form
 							task={this.props.task}
 							date={this.props.date}
-							cancelNewTask={this.cancelNewTask}
 							handleTaskChange={this.handleTaskChange}
 							handleNewTask={this.handleNewTask}
+							cancelNewTask={this.cancelNewTask}
 						/>
 					</ListItem>
+					{/* Add a new task button */}
 					<ListItem className={!Addtask ? '' : classes.hide} onClick={this.handleClick}>
 						<ListItemIcon>
 							<Add className={classes.icon} />

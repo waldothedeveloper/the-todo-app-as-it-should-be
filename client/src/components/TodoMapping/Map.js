@@ -7,8 +7,9 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { withStyles } from '@material-ui/core/styles';
-import MoreHoriz from '@material-ui/icons/MoreHoriz'
+import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import IconButton from '@material-ui/core/IconButton';
+import HandleCompletedTask from '../Todos/HandleCompletedTask';
 
 const styles = {
 	invisibleSpace: {
@@ -17,57 +18,50 @@ const styles = {
 		marginLeft: -27,
 		marginTop: 13
 	}
-}
+};
 
 function TodoMap(props) {
-	const {classes} = props;
-	const todos = props.todos
-	if(Object.keys(todos.length !== 0 && todos.constructor === Object)) {
+	const { classes } = props;
+	const todos = props.todos;
+	if (Object.keys(todos.length !== 0 && todos.constructor === Object)) {
 		return (
 			<React.Fragment>
-					{todos.map((t) => (
-						<ListItem key={t.id}>
-						<div className={classes.invisibleSpace}></div>
+				{todos.map((t) => (
+					<ListItem key={t.id}>
+						<div className={classes.invisibleSpace} />
 						<Table>
 							<TableBody>
 								<TableRow>
 									{/* icons for completed and not completed */}
 									<TableCell>
-										icons
+										<HandleCompletedTask taskId={t.id} />
 									</TableCell>
 									{/* task name */}
 									<TableCell>
-									  <ListItemText>
-										  {t.task}
-									  </ListItemText>
-									  <ListItemText>
-										 {t.dueDate.now}
-									  </ListItemText>
+										<ListItemText>{t.task}</ListItemText>
+										<ListItemText>{t.dueDate.now}</ListItemText>
 									</TableCell>
 									{/* Portal with gear menu */}
 									<TableCell>
 										<IconButton>
-											<MoreHoriz/>
+											<MoreHoriz />
 										</IconButton>
 									</TableCell>
 								</TableRow>
 							</TableBody>
 						</Table>
-						</ListItem>
-					))}
+					</ListItem>
+				))}
 			</React.Fragment>
 		);
 	} else {
-		return null
+		return null;
 	}
-
-
-	
 }
 
 TodoMap.propTypes = {
 	todos: PropTypes.array.isRequired,
-	classes: PropTypes.object.isRequired,
-}
+	classes: PropTypes.object.isRequired
+};
 
 export default withStyles(styles)(TodoMap);

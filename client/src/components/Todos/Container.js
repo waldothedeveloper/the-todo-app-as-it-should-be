@@ -32,7 +32,6 @@ class Container extends React.Component {
 	};
 
 	render() {
-	
 		return (
 			<React.Fragment>
 				<MainNavigation />
