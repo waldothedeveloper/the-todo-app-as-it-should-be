@@ -36,7 +36,7 @@ function Today(props) {
       justify="flex-start"
       alignItems="center"
     >
-      <a href="#">
+      <a>
         <Typography className={classes.text} variant="h5" gutterBottom>
           Today
         </Typography>

@@ -38,22 +38,24 @@ class Root extends React.Component {
 	};
 
 	handleNewTask = (event) => {
-		console.log('handle New Task from root is here');
 		if (this.state.task !== '') {
-			this.setState({
-				todos: [
-					...this.state.todos,
-					{
-						id: shortid.generate(),
-						task: this.state.task,
-						dueDate: { now },
-						reminder: {},
-						priority: '',
-						completed: false,
-						userId: 1
-					}
-				],
-				task: ''
+			this.setState((state) => { 
+				return {
+					todos: [
+						...this.state.todos,
+						{
+							id: shortid.generate(),
+							task: this.state.task,
+							dueDate: { now },
+							reminder: {},
+							priority: '',
+							completed: false,
+							userId: 1
+						}
+					],
+					task: state.task = ""
+
+				}
 			});
 		} else {
 			alert('You cannot enter an empty title');
@@ -85,6 +87,7 @@ class Root extends React.Component {
 							handleTaskChange={this.handleTaskChange}
 							handleNewTask={this.handleNewTask}
 							task={this.state.task}
+							todos={this.state.todos}
 						/>
 					)}
 				/>

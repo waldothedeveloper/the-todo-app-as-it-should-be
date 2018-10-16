@@ -13,7 +13,7 @@ export const randomNum = (number) => {
 	return Math.floor(Math.random() * Math.floor(number));
 };
 
-export const now = moment();
+export const now = moment().format("dddd");
 // {
 // 	id: shortid.generate(),
 // 	task: 'call my work',

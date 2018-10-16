@@ -32,6 +32,7 @@ class Container extends React.Component {
 	};
 
 	render() {
+	
 		return (
 			<React.Fragment>
 				<MainNavigation />
@@ -40,6 +41,7 @@ class Container extends React.Component {
 					handleTaskChange={this.handleTaskChange}
 					date={this.props.date}
 					task={this.props.task}
+					todos={this.props.todos}
 				/>
 			</React.Fragment>
 		);

@@ -39,9 +39,8 @@ const DeleteBtn = {
 };
 
 class Form extends React.Component {
-	cancelNewTodo = () => {
-		console.log('cancel todo from delete button at Form js');
-		this.props.cancelNewTodo;
+	cancelNewTask = () => {
+		this.props.cancelNewTask();
 	};
 
 	handleTaskChange = (event) => {
@@ -52,7 +51,10 @@ class Form extends React.Component {
 		this.props.handleNewTask(event);
 	};
 
+	
+
 	render() {
+	
 		const now = moment();
 		const classes = this.props;
 		return (
@@ -88,8 +90,8 @@ class Form extends React.Component {
 									Add Task
 								</Button>
 								<Button
-									onClick={this.props.cancelNewTodo}
-									onBlur={this.props.cancelNewTodo}
+									onClick={this.props.cancelNewTask}
+									onBlur={this.props.cancelNewTask}
 									variant="text"
 									size="medium"
 									style={DeleteBtn}
@@ -122,4 +124,10 @@ class Form extends React.Component {
 	}
 }
 
+Form.propTypes = {
+	task: PropTypes.string.isRequired,
+	cancelNewTask: PropTypes.func.isRequired,
+	handleTaskChange: PropTypes.func.isRequired,
+	handleNewTask: PropTypes.func.isRequired
+}
 export default Form;
