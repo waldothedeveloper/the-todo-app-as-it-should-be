@@ -30,6 +30,10 @@ class Container extends React.Component {
 	handleNewTask = (event) => {
 		this.props.handleNewTask(event);
 	};
+	
+	handleCompletedTask = (id) => {
+		this.props.handleCompletedTask(id)
+	}
 
 	render() {
 		return (
@@ -41,6 +45,7 @@ class Container extends React.Component {
 					date={this.props.date}
 					task={this.props.task}
 					todos={this.props.todos}
+					handleCompletedTask={this.props.handleCompletedTask}
 				/>
 			</React.Fragment>
 		);

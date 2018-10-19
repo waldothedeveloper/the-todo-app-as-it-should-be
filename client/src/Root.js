@@ -17,6 +17,7 @@ class Root extends React.Component {
 		this.state = {
 			subtitles: 'Own your day without any hassle!',
 			todos: [],
+			completedTasks: [],
 			title: 'Factodo',
 			task: '',
 			error: null,
@@ -63,7 +64,20 @@ class Root extends React.Component {
 		event.preventDefault();
 	};
 
+	handleCompletedTask = (id) => {
+		const todos = [...this.state.todos]
+		const completedTodo = todos.splice(id, 1)
+		const completed = [...this.state.completedTasks]
+		completed.push(completedTodo[0])
+		this.setState({
+			todos,
+			completedTasks: completed
+		})
+	}
+
 	render() {
+		console.log(`todos:`, this.state.todos)
+		console.log(`completed Tasks:`, this.state.completedTasks)
 		return (
 			<MuiThemeProvider theme={theme}>
 				<CssBaseline />
@@ -88,6 +102,7 @@ class Root extends React.Component {
 							task={this.state.task}
 							todos={this.state.todos}
 							taskCompleted={this.state.todos}
+							handleCompletedTask={this.handleCompletedTask}
 						/>
 					)}
 				/>

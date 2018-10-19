@@ -1,19 +1,39 @@
 import React from 'react';
 import RadioBtnUnchecked from '../Todos/RadioBtnUnchecked';
 import RadioBtnChecked from '../Todos/RadioBtnChecked';
-import IconButton from '@material-ui/core/IconButton';
+
 
 class HandleCompletedTask extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			taskClicked: false
+		}
+	}
 	handleClick = (event) => {
-		console.log(this.props.taskId);
+		this.setState({
+			taskClicked: !this.state.taskClicked
+		})
+		this.props.handleCompletedTask()
 		event.preventDefault();
 	};
 
 	render() {
+		const taskClicked = this.state.taskClicked
 		return (
-			<IconButton onClick={this.handleClick}>
-				<RadioBtnUnchecked />
-			</IconButton>
+			<div onClick={this.handleClick}>
+				{
+					!taskClicked ? (
+					
+							<RadioBtnUnchecked />
+				
+					) : (
+					
+							<RadioBtnChecked />
+				
+					)
+				}
+			</div>
 		);
 	}
 }

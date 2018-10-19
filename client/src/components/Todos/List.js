@@ -50,6 +50,11 @@ class NewTodoList extends React.Component {
 	handleNewTask = (event) => {
 		this.props.handleNewTask(event);
 	};
+
+	handleCompletedTask = (id) => {
+		this.props.handleCompletedTask(id)
+	}
+
 	render() {
 		const { classes } = this.props;
 		const Addtask = this.state.task;
@@ -58,7 +63,7 @@ class NewTodoList extends React.Component {
 				<List component="ul">
 					<Today />
 					{/* Map returns an <li> with each new todo */}
-					<Map todos={this.props.todos} />
+					<Map handleCompletedTask={this.handleCompletedTask} todos={this.props.todos} />
 					<ListItem className={!Addtask ? classes.hide : ''}>
 						<Form
 							task={this.props.task}

@@ -20,9 +20,15 @@ const styles = {
 	}
 };
 
-function TodoMap(props) {
-	const { classes } = props;
-	const todos = props.todos;
+class TodoMap extends React.Component {
+
+	handleCompletedTask(id) {
+		this.props.handleCompletedTask(id)
+	}
+
+	render() {
+		const { classes } = this.props;
+	const todos = this.props.todos;
 	if (Object.keys(todos.length !== 0 && todos.constructor === Object)) {
 		return (
 			<React.Fragment>
@@ -34,7 +40,7 @@ function TodoMap(props) {
 								<TableRow>
 									{/* icons for completed and not completed */}
 									<TableCell>
-										<HandleCompletedTask taskId={t.id} />
+										<HandleCompletedTask handleCompletedTask={() => this.handleCompletedTask(t.id)} />
 									</TableCell>
 									{/* task name */}
 									<TableCell>
@@ -56,6 +62,7 @@ function TodoMap(props) {
 		);
 	} else {
 		return null;
+	}
 	}
 }
 
