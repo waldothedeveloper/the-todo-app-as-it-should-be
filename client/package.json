@@ -22,10 +22,9 @@
     "react-dom": "^16.5.2",
     "react-moment": "^0.8.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "2.0.5",
     "shortid": "^2.2.13",
-    "typeface-roboto": "0.0.54",
-    "webpack": "^3.8.1"
+    "typeface-roboto": "0.0.54"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,5 +32,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "http://localhost:5000/",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

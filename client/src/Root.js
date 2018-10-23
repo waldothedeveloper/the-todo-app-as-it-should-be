@@ -65,19 +65,17 @@ class Root extends React.Component {
 	};
 
 	handleCompletedTask = (id) => {
-		const todos = [...this.state.todos]
-		const completedTodo = todos.splice(id, 1)
-		const completed = [...this.state.completedTasks]
-		completed.push(completedTodo[0])
+		const todos = [ ...this.state.todos ];
+		const completedTodo = todos.splice(id, 1);
+		const completed = [ ...this.state.completedTasks ];
+		completed.push(completedTodo[0]);
 		this.setState({
 			todos,
 			completedTasks: completed
-		})
-	}
+		});
+	};
 
 	render() {
-		console.log(`todos:`, this.state.todos)
-		console.log(`completed Tasks:`, this.state.completedTasks)
 		return (
 			<MuiThemeProvider theme={theme}>
 				<CssBaseline />
