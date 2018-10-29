@@ -10,6 +10,8 @@ import SocialAuthButtons from './components/UI/Features/Authentication/SocialAut
 import Container from './components/Todos/Container';
 import { now } from './components/utils/helpers';
 import { Route } from 'react-router-dom';
+import BgImage from './components/UI/BackgroundImgComponents/BgImage';
+import moment from 'moment';
 
 class Root extends React.Component {
 	constructor(props) {
@@ -21,7 +23,7 @@ class Root extends React.Component {
 			title: 'Factodo',
 			task: '',
 			error: null,
-			date: new Date()
+			date: moment().format("hh:mm:a")
 		};
 	}
 
@@ -104,6 +106,9 @@ class Root extends React.Component {
 						/>
 					)}
 				/>
+				<Route exact path='/inbox' render={() => (
+					<BgImage />
+				)} />
 			</MuiThemeProvider>
 		);
 	}

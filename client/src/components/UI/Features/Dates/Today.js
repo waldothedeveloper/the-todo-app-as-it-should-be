@@ -37,7 +37,7 @@ function Today(props) {
 				</Typography>
 			</IconButton>
 			<Typography className={classNames(classes.text, classes.date)} variant="caption">
-				{now.format('ddd MMM M')}
+				{now.format('ddd MMM D')}
 			</Typography>
 		</Grid>
 	);

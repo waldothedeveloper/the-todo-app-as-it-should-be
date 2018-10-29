@@ -38,6 +38,10 @@ const CancelTaskBtn = {
 	color: '#fafafa'
 };
 
+const iconColor = {
+		color: '#fff'
+}
+
 class Form extends React.Component {
 	cancelNewTask = (event) => {
 		this.props.cancelNewTask(event);
@@ -98,13 +102,13 @@ class Form extends React.Component {
 								}}
 							>
 								<IconButton>
-									<ReOrderIcon />
+									<ReOrderIcon style={iconColor}/>
 								</IconButton>
 								<IconButton>
-									<AlarmIcon />
+									<AlarmIcon style={iconColor}/>
 								</IconButton>
 								<IconButton>
-									<FlagIcon />
+									<FlagIcon style={iconColor}/>
 								</IconButton>
 							</TableCell>
 						</TableRow>

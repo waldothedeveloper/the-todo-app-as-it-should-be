@@ -15,7 +15,7 @@ const styles = (theme) => ({
 		width: '100%'
 	},
 	icon: {
-		color: '#dc4fad'
+		color: '#db4c3f'
 	},
 	hide: {
 		display: 'none'
@@ -87,7 +87,7 @@ class NewTodoList extends React.Component {
 }
 
 NewTodoList.propTypes = {
-	date: PropTypes.object.isRequired,
+	date: PropTypes.string.isRequired,
 	task: PropTypes.string.isRequired
 };
 
